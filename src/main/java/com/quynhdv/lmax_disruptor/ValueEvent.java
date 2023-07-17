@@ -8,8 +8,7 @@ import lombok.Setter;
 @Setter
 public class ValueEvent {
     private int value;
-    public final static EventFactory EVENT_FACTORY
-            = () -> new ValueEvent();
-
-    // standard getters and setters
+    public final static EventFactory<ValueEvent> EVENT_FACTORY
+            = ValueEvent::new;
 }
+

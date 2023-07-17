@@ -9,7 +9,6 @@ import com.lmax.disruptor.dsl.ProducerType;
 import com.lmax.disruptor.util.DaemonThreadFactory;
 import lombok.extern.java.Log;
 
-import java.io.IOException;
 import java.util.concurrent.ThreadFactory;
 
 @Log
@@ -25,9 +24,8 @@ public class Main {
         log.info("Id is " + id
                 + " sequence id that was used is " + sequenceId);
     }
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         ThreadFactory threadFactory = DaemonThreadFactory.INSTANCE;
-
         WaitStrategy waitStrategy = new BusySpinWaitStrategy();
         Disruptor<ValueEvent> disruptor
                 = new Disruptor<>(
@@ -46,3 +44,4 @@ public class Main {
         }
     }
 }
+
